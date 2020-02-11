@@ -6,25 +6,24 @@ using System.Threading.Tasks;
 
 namespace rockpapergame
 {
-    class Program
+    class gestures
     {
-        static void Main(string[] args)
+        
+        public string name;
+        public gestures(string name) 
         {
-
-            human man = new human();
-
-
-
-
-
-
-
-
-
-
-
-
-            Console.WriteLine();
+            this.name = name;
+        
+        
+        
         }
+
+
+
+
+        
+
+
+
     }
 }

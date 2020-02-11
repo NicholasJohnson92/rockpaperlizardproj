@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace rockpapergame
 {
-    class Program
+    class gsmeroom
     {
-        static void Main(string[] args)
-        {
-
-            human man = new human();
 
 
-
+        
+        
+        
 
 
 
@@ -23,8 +21,5 @@ namespace rockpapergame
 
 
 
-
-            Console.WriteLine();
-        }
     }
 }
