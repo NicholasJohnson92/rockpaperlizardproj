@@ -11,7 +11,7 @@ namespace rockpapergame
         static void Main(string[] args)
         {
 
-            human man = new human();
+            gsmeroom testrun = new gsmeroom();
 
 
 
