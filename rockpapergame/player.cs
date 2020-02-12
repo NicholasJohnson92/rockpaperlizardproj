@@ -52,12 +52,12 @@ namespace rockpapergame
         public virtual void ReadGesutures(int choice1, int choice2)
         {
              
-                  
+               
             if (glist[choice1] == glist[choice2])
             {
                 Console.WriteLine(" Round " + roundCounter);
                 Console.WriteLine(" There was a tie !! " +
-                    " Replay Round!!"); roundCounter++; Console.ReadLine();
+                    " Replay Round!!"); roundCounter++; Console.ReadLine(); ;
             }
             else if (glist[choice1].name == "Rock" && glist[choice2].name == "Paper")
             {
@@ -182,7 +182,7 @@ namespace rockpapergame
         }
         public virtual int PickAGesture()
         {
-            Console.WriteLine(name + " Please choose an gesture to play Rock = 0 " +
+            Console.WriteLine( " Please choose an gesture to play Rock = 0 " +
             " Paper = 1 " +
                " Scissors = 2 " +
                  " Lizard = 3 " +

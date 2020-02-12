@@ -10,8 +10,10 @@ namespace rockpapergame
     {
         static void Main(string[] args)
         {
+           // player human = new human();
+            
 
-            gsmeroom testrun = new gsmeroom();
+           gsmeroom testrun = new gsmeroom();
 
 
 
