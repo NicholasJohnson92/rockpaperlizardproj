@@ -8,7 +8,7 @@ namespace rockpapergame
 {
     class human : player
     {
-        public string name;
+        
         public string ans2;
       
 

@@ -24,7 +24,7 @@ namespace rockpapergame
             this.player1.winCounter2 = player2score;
             
             
-            while (player1.winCounter1<2&&player1.winCounter2<2) { int choice1 = player1.PickAGesture();
+            while (player1.winCounter1<2&&player1.winCounter2<2) { int choice1 = player1.PickAGesture();Console.ReadLine();
                 int choice2 = player2.PickAGesture();
                 player1.ReadGesutures(choice1, choice2); ChooseAWinner();
             }
@@ -61,18 +61,25 @@ namespace rockpapergame
         }
         public void CharacterSelect()
         {
-            Console.WriteLine("Would you like to play?? (Y/N) ");
+            Console.WriteLine(" Would you like to play?? (Y/N) ");
             string ans = Console.ReadLine().ToLower();
             switch (ans)
             {
                 case "yes":
                 case "y":
                 case "yeah":
-                    Console.WriteLine("Excellent choice!! Would You like one or two players??");
+                    Console.WriteLine(" Excellent choice!! Would You like zero, one, or two players??");
 
                     string ans2 = Console.ReadLine().ToLower();
                     switch (ans2)
                     {
+                        case "0":
+                        case "zero":
+                        case "oh":
+                            player1 = new computer();
+                            player2 = new computer();
+                            break;
+
                         case "1":
                         case "one":
                             player1 = new human();
@@ -89,7 +96,10 @@ namespace rockpapergame
                 case "n":
                     Console.WriteLine(" Fine then Goodbye "); EndGame(); break;
                 default:
-                    Console.WriteLine(" There seems to some confusion please pick 1 or 2 players "); CharacterSelect(); break;
+                    Console.WriteLine(" There seems to some confusion please pick 1 or 2 players "); CharacterSelect();  while (player1.winCounter1<2&&player1.winCounter2<2) { int choice1 = player1.PickAGesture();Console.ReadLine();
+                int choice2 = player2.PickAGesture();
+                player1.ReadGesutures(choice1, choice2); ChooseAWinner();
+            } break;
             }
         }
 
@@ -127,31 +137,54 @@ namespace rockpapergame
 
 
         public void ChooseAWinner()
-        {if(player1Score.E)
-            if (player1Score >= 2)
+        {
+            if (player1.winCounter1 < 2 && player1.winCounter2 < 2) { Console.WriteLine(" No Clear Winner !! Continue!! "); }
+            else if (player1.winCounter1 >= 2 || player1.winCounter2 >= 2)
             {
-                Console.WriteLine(player1.name + " Won!!! ");
+                if (player1.winCounter1 >= 2)
+                {
+                    Console.WriteLine(player1.name + " Won!!! "); Console.ReadLine();
+                }
+                else if (player1.winCounter2 >= 2) { Console.WriteLine(player2.name + " Won !!! "); Console.ReadLine(); }
+                Console.WriteLine(" Would You like to play again? (Y/N) ");
+                string ans = Console.ReadLine().ToLower();
+                switch (ans)
+                {
+                    case "yes":
+                    case "y":
+                    case "yeah":
+
+                        StartGame(); CharacterSelect();
+                        this.player1.winCounter1 = player1Score;
+                        this.player1.winCounter2 = player2score; while (player1.winCounter1 < 2 && player1.winCounter2 < 2)
+                        {
+                            int choice1 = player1.PickAGesture(); Console.ReadLine();
+                            int choice2 = player2.PickAGesture();
+                            player1.ReadGesutures(choice1, choice2); ChooseAWinner();
+                        }
+                        break;
+
+
+                    case "no":
+                    case "nope":
+                    case "n":
+                        Console.WriteLine("Fine then Goodbye "); Console.ReadLine(); EndGame(); break;
+                    default:
+                        Console.WriteLine(" There seems to some confusion game will restart "); StartGame(); CharacterSelect();
+                        this.player1.winCounter1 = player1Score;
+                        this.player1.winCounter2 = player2score; while (player1.winCounter1 < 2 && player1.winCounter2 < 2)
+                        {
+                            int choice1 = player1.PickAGesture(); Console.ReadLine();
+                            int choice2 = player2.PickAGesture();
+                            player1.ReadGesutures(choice1, choice2); ChooseAWinner();
+                        }
+                        break;
+                }
             }
-            else if (player2score >= 2) { Console.WriteLine(player2.name + "Won"); }
-            Console.WriteLine(" Would You like to play again? (Y/N) ");
-            string ans = Console.ReadLine().ToLower();
-            switch (ans)
-            {
-                case "yes":
-                case "y":
-                case "yeah":
-
-                    StartGame(); break;
-
-
-                case "no":
-                case "nope":
-                case "n":
-                    Console.WriteLine("Fine then Goodbye ");EndGame(); break;
-                default:
-                    Console.WriteLine(" There seems to some confusion game will restart "); StartGame(); break;
-            }
-        }
+           
+            
+           
+        } 
         public void EndGame() { Environment.Exit(0); }
 
 

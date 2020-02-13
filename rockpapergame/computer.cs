@@ -9,7 +9,17 @@ namespace rockpapergame
     class computer : player
     {
 
+        public computer()
+        {
+            Console.WriteLine(" Please Choose a Computer name ");
+            name = Console.ReadLine().ToUpper();
         
+        
+        
+        
+        
+        
+        }
 
 
 
@@ -27,7 +37,7 @@ namespace rockpapergame
         public override int PickAGesture()
         { Random random = new Random();
             int compchoice = random.Next(0, 4);
-            name = "Hal";
+            ;
             Console.WriteLine( name+ " chose to play " + compchoice);
             return compchoice;
 
